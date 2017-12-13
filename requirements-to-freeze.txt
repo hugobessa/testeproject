@@ -31,6 +31,5 @@ fixmydjango
 ipython
 model-mommy
 pre-commit
-git-lfs
 django-debug-toolbar
 django-debug-toolbar-request-history

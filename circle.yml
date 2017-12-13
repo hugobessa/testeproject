@@ -6,6 +6,7 @@ machine:  # remeber to update those!
 
 test:
   override:
+    - git lfs status --json
     - npm install
     - npm run build
     # style check
