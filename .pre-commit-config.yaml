@@ -2,7 +2,8 @@
   sha: v1.1.1
   hooks:
     - id: check-added-large-files
-      args: ['--maxkb=500']
+      args:
+      - --maxkb=500
     - id: check-byte-order-marker
     - id: check-case-conflict
     - id: check-merge-conflict
