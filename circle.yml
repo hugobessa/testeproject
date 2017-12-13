@@ -18,10 +18,10 @@ test:
     # pre-commit additional checks
     - SKIP=prospector,isort,eslint,missing-migrations pre-commit run --all-files
     - >
-        DJANGO_SETTINGS_MODULE=testeproject.settings.local_base
+        DJANGO_SETTINGS_MODULE='testeproject.settings.local_base'
             python manage.py has_missing_migrations --ignore authtools;
     - >
-        DJANGO_SETTINGS_MODULE=testeproject.settings.production
+        DJANGO_SETTINGS_MODULE='testeproject.settings.production'
         SECRET_KEY=$(python -c 'import uuid; print(uuid.uuid4().hex + uuid.uuid4().hex)')
         DATABASE_URL='sqlite:///'
         ALLOWED_HOSTS='.example.org'
