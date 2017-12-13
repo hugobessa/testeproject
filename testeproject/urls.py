@@ -1,8 +1,8 @@
+import django_js_reverse.views
 from django.conf import settings
 from django.conf.urls import include, url  # noqa
 from django.contrib import admin
 from django.views.generic import TemplateView
-import django_js_reverse.views
 
 
 urlpatterns = [

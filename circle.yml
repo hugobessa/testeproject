@@ -16,18 +16,19 @@ test:
     # imports check
     - isort **/*.py --check-only
     # pre-commit additional checks
-    - SKIP=prospector,isort pre-commit run --all-files
+    - SKIP=prospector,isort,eslint,missing-migrations pre-commit run --all-files
     - >
-        DJANGO_SETTINGS_MODULE=testeproject.settings.local
+        DJANGO_SETTINGS_MODULE=testeproject.settings.local_base
             python manage.py has_missing_migrations --ignore authtools;
     - >
+        DJANGO_SETTINGS_MODULE=testeproject.settings.production
         SECRET_KEY=$(python -c 'import uuid; print(uuid.uuid4().hex + uuid.uuid4().hex)')
         DATABASE_URL='sqlite:///'
         ALLOWED_HOSTS='.example.org'
         SENDGRID_USERNAME='test'
         SENDGRID_PASSWORD='test'
         REDIS_URL='redis://'
-            python manage.py check --deploy --settings=testeproject.settings.production
+            python manage.py check --deploy
     - coverage run manage.py test
     - npm run lint
   post:
