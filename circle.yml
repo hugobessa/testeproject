@@ -3,6 +3,8 @@ machine:  # remeber to update those!
     version: 3.6.0
   node:
     version: 6.1.0
+  environment:
+    PIPENV_IGNORE_VIRTUALENVS: True
 
 dependencies:
   pre:
