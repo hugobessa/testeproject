@@ -6,7 +6,8 @@ machine:  # remeber to update those!
 
 test:
   override:
-    - git lfs status --json
+    - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+    - apt-get install git-lfs --upgrade
     - npm install
     - npm run build
     # style check
