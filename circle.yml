@@ -9,16 +9,16 @@ dependencies:
     - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
     - sudo apt-get install git-lfs --upgrade
   post:
-    - pip install pipenv
+    - pip install requests>2.18.0 pipenv
     - pipenv install
 
 test:
   override:
     - npm run build
     # style check
-    - prospector
+    - pipenv run prospector
     # security checks
-    - bandit -r .
+    - pipenv run bandit -r .
     - pipenv run pip freeze | safety check --stdin
     # imports check
     - pipenv run isort **/*.py --check-only
