@@ -9,6 +9,8 @@ machine:  # remeber to update those!
 
 dependencies:
   pre:
+    # this updates git-lfs to make pre-commit large files check hook work properly
+    # more details in https://github.com/pre-commit/pre-commit-hooks/issues/252
     - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
     - sudo apt-get install git-lfs --upgrade
   post:
